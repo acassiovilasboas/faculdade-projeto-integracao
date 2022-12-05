@@ -3,7 +3,14 @@ Obter tokens
 Listar playlists por user_id
 https://developer.spotify.com/console/get-playlists/?user_id=&limit=&offset=
 
-Listar playlists por token (playlists publicas) 
+Scopos:
+Listar playlists: playlist-read-private, playlist-read-collaborative
+Criar playlist: playlist-modify-public, playlist-modify-private
+Listar musicas da playlist: playlist-read-public, playlist-read-private
+Recomendar: null
+Adicionar Muisca: playlist-modify-public, playlist-modify-private
+
+
 
 
 Controllers
