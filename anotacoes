@@ -1,0 +1,60 @@
+Obter tokens
+
+Listar playlists por user_id
+https://developer.spotify.com/console/get-playlists/?user_id=&limit=&offset=
+
+Listar playlists por token (playlists publicas) 
+
+
+Controllers
+recebe as requisicoes e envia os retornos
+
+Envia para o service ou use case, o objeto recebido, livre de lixo, exemplo: req.body
+Recebe de volta uma model e disponibiliza em json para o solicitante.
+
+Services/Caso de uso
+Recebe um json, converte para uma model e consome um servico
+
+Repositories
+
+DataSources
+
+
+requisicao get/post -> controller -> useCase -> repository -> dataSource
+json <- controller <- useCase <- repository <- dataSource
+
+
+requisicao get/post: 
+    camada gerenciada pelo arquivo route responsável por nomear a 
+    rota e identificar o metodo da requisicao (get ou post).
+    cada url mapeada será responsavel por chamar seu controlador e 
+    gerenciar a requisicao a partir do controlador.
+
+controller:
+    camada que gerencia o pedido da requisicao. Neste ponto o controller
+    consome seu respectivo useCase passando apenas json da requisicao e 
+    esperando uma model como resposta.
+    Ao receber a resposta, deve disponibilizar em json atraves do res.send();
+
+useCase:
+    recebe a solicitacao do controller com um objeto json recebido na requisicao.
+    converte o objeto recebido em um modelo e envia para seu respectivo repository,
+    e aguarda o retorno de uma resposta, converte para uma model e envia de volta para o controller.
+
+repository:
+    recebe um modelo, envia ao dataSource para que este lide com os servicos externos ou banco de dados e espera um objeto bruto e devolve ao useCase.
+
+dataSource:
+    camada responsável por consumir um servico ou banco de dados. Recebe os dados necessarios para completar uma requisicao e retorna ao repository dado bruto.
+
+
+Arquivos de suporte
+    Headers:
+    Gerencia os headers usados na requisicao
+    
+
+
+Estrutura do projeto
+Domain
+Data
+Driven
