@@ -9,7 +9,7 @@ async function execute(req, res) {
       body: req.body
     }
   
-    apiRequest.destroy(request, res)
+    return await apiRequest.destroy(request, res)
 }
 
 module.exports = { execute }

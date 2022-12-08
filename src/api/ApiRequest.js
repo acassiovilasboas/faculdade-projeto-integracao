@@ -29,11 +29,10 @@ function requestGet(req) {
 }
 
 async function request(data, res) {
-    console.log(data)
-    await axios(data)
+    
+    return await axios(data)
     .then(function (response) {
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(response.data));
+        return response.data
     })
     .catch(function (error) {
         console.log("error api")
@@ -43,20 +42,20 @@ async function request(data, res) {
     });
 }
 
-function get(req, res) {
+async function get(req, res) {
     const data = requestGet(req)
-    request(data, res)
+    return await request(data, res)
 }
 
-function post(req, res) {
+async function post(req, res) {
     const data = requestPost(req)
-    request(data, res)
+    return await request(data, res)
 }
 
-function destroy(req, res) {
+async function destroy(req, res) {
     const method = 'delete'
     const data = requestPost(req, method)
-    request(data, res)
+    return await request(data, res)
 }
 
 module.exports = { get, post, destroy }

@@ -126,3 +126,5 @@ var genres = [
       "work-out",
       "world-music"
     ]
+
+    module.exports = { genres }

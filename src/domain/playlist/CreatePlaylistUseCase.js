@@ -15,7 +15,7 @@ async function execute(req, res) {
       body: body
     }
   
-    apiRequest.post(request, res)
+    return await apiRequest.post(request, res)
   }
 
   module.exports = { execute }

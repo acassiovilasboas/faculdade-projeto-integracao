@@ -6,7 +6,9 @@ module.exports = {
     //list playlists (token do usuario)
     async getPlaylists(req, res) {
         console.log("run PlaylistController -> getPlaylists")
-        getPlaylistUseCase.execute(req, res)
+        const response = await getPlaylistUseCase.execute(req, res)
+
+        res.send(response)
     },
     // criar playlist (objeto com nome, descricao e public)
     async createPlaylist(req, res) {

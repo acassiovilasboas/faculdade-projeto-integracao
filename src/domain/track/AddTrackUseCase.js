@@ -8,7 +8,7 @@ async function execute(req, res) {
       token: req.query.token
     }
 
-    apiRequest.post(request, res)
+    return await apiRequest.post(request, res)
 }
 
 module.exports = { execute }

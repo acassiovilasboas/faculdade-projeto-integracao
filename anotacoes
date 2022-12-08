@@ -65,3 +65,19 @@ Estrutura do projeto
 Domain
 Data
 Driven
+
+
+lsitTracks
+alterar req, res para request, response
+
+alterar domain para usecase
+
+
+service:
+    requestModel
+
+useCase: 
+    chamada para service
+
+
+use case -> service -> apiRequest
